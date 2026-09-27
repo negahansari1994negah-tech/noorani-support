@@ -1,275 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نورانی | آموزش قاعده نورانی</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نورانی</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, "Segoe UI", sans-serif;
-  background: #f5f8ff;
-  color: #202124;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 25px 18px 50px;
-}
-
-.header {
-  background: white;
-  border-radius: 24px;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,.08);
-  margin-bottom: 20px;
-}
-
-.logo {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-h1 {
-  margin: 5px 0;
-  color: #2457c5;
-  font-size: 32px;
-}
-
-.subtitle {
-  color: #666;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 22px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.07);
-}
-
-.card h2 {
-  margin-top: 0;
-  color: #2457c5;
-}
-
-.lesson {
-  display: block;
-  width: 100%;
-  border: none;
-  background: #eef4ff;
-  color: #17449e;
-  padding: 18px;
-  margin: 12px 0;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: right;
-}
-
-.lesson:hover {
-  background: #dce9ff;
-}
-
-.start {
-  display: block;
-  width: 100%;
-  border: none;
-  background: #2f6fed;
-  color: white;
-  padding: 17px;
-  border-radius: 16px;
-  font-size: 19px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-#lessonArea {
-  display: none;
-  text-align: center;
-}
-
-.arabic {
-  font-size: 55px;
-  line-height: 1.8;
-  margin: 25px 0;
-  color: #111;
-}
-
-.next {
-  background: #198754;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 14px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.back {
-  background: #eee;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 12px;
-}
-
-.footer {
-  text-align: center;
-  color: #777;
-  margin-top: 30px;
-  font-size: 14px;
-}
+:root{--p:#7657d9;--pink:#ff72ad;--blue:#58b5ff;--green:#4acb91;--yellow:#ffd95a;--ink:#29243b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff8e7,#edf7ff,#f8edff)}
+button,select{font:inherit}.app{max-width:1100px;margin:auto;padding:16px;min-height:100vh}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.brand{font-weight:900;color:var(--p);font-size:25px}.lang{border:0;background:#fff;border-radius:14px;padding:10px 13px;box-shadow:0 5px 18px #0001}
+.screen{display:none}.screen.active{display:block}.panel{background:#fff;border-radius:30px;padding:24px;box-shadow:0 12px 40px #00000012}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;background:linear-gradient(135deg,#7657d9,#a879f1);color:#fff;border-radius:30px;padding:28px;overflow:hidden}
+.hero h1{font-size:40px;margin:10px 0}.hero p{line-height:1.9;font-size:18px}
+.btn{border:0;border-radius:17px;padding:13px 20px;font-weight:800;cursor:pointer;margin:4px}.primary{background:var(--yellow);color:#493900}.light{background:#fff;color:var(--p)}.back{background:#eef0f5}
+.characters{display:flex;justify-content:center;align-items:end;gap:12px}.characters img{width:44%;max-height:260px;object-fit:cover;border:5px solid #fff;border-radius:24px;background:#fff}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:17px}.feature{background:#fff;border-radius:22px;padding:20px;box-shadow:0 8px 25px #0000000d}.feature .ico{font-size:35px}.feature p{line-height:1.7;color:#777}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.lesson{background:#fff;border-radius:22px;padding:20px;box-shadow:0 8px 25px #0000000d;border:2px solid transparent}.lesson.open{cursor:pointer}.lesson.open:hover{border-color:#b6a5f5}.lesson.locked{opacity:.55}
+.lesson-view{text-align:center}.lesson-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.badge{background:#f0eaff;color:var(--p);border-radius:99px;padding:6px 11px;font-size:13px;font-weight:800}
+.progress{height:9px;background:#eee;border-radius:99px;overflow:hidden;margin:16px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--p))}
+.teacher{display:flex;align-items:center;gap:14px;text-align:right;background:#faf8ff;border-radius:22px;padding:12px;margin:16px 0}.teacher img{width:86px;height:86px;object-fit:cover;border-radius:20px}
+.step{display:none}.step.active{display:block}.arabic{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:75px;background:#fff9dd;border-radius:25px;padding:18px;max-width:600px;margin:15px auto}.instruction{font-size:18px;line-height:1.9;color:#555}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}.option{display:block;width:min(500px,100%);margin:9px auto;padding:14px;border:2px solid #eee;background:#fff;border-radius:16px;cursor:pointer}.feedback{min-height:28px;font-weight:800}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero h1{font-size:31px}.features,.lesson-grid{grid-template-columns:1fr}.characters img{max-height:210px}.arabic{font-size:58px}}
 </style>
 </head>
-
 <body>
-
-<div class="container">
-
-  <div class="header">
-    <div class="logo">📖</div>
-    <h1>نورانی</h1>
-    <div class="subtitle">
-      آموزش مرحله‌به‌مرحله قاعده نورانی
-      <br>
-      برای کودکان و بزرگسالان
-    </div>
+<div class="app">
+  <div class="top">
+    <div class="brand" id="brand">📖 نورانی</div>
+    <select class="lang" id="lang" onchange="setLanguage()">
+      <option value="fa">دری / فارسی</option><option value="ar">العربية</option>
+      <option value="en">English</option><option value="ur">اردو</option>
+      <option value="tr">Türkçe</option><option value="fr">Français</option>
+      <option value="de">Deutsch</option><option value="es">Español</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
   </div>
 
-  <div id="home">
-
-    <div class="card">
-      <h2>درس‌ها</h2>
-
-      <button class="lesson" onclick="openLesson(1)">
-        📚 درس ۱ — حروف
-      </button>
-
-      <button class="lesson" onclick="openLesson(2)">
-        📚 درس ۲ — حرکات
-      </button>
-
-      <button class="lesson" onclick="openLesson(3)">
-        📚 درس ۳ — ترکیب حروف و حرکات
-      </button>
-
-      <button class="lesson" onclick="openLesson(4)">
-        📚 درس ۴ — تمرین خواندن
-      </button>
+  <section id="home" class="screen active">
+    <div class="hero">
+      <div>
+        <div class="badge">آموزش قرآن برای کودکان</div>
+        <h1 id="heroTitle">با نورانی یادگیری را شروع کن 🌈</h1>
+        <p id="heroText">درس‌ها با بازی، صدا، تصویر و تمرین مرحله‌به‌مرحله پیش می‌روند.</p>
+        <button class="btn primary" id="mainBtn" onclick="mainAction()">🌟 شروع یادگیری</button>
+        <button class="btn light" onclick="showLessons()">📚 درس‌ها</button>
+      </div>
+      <div class="characters" aria-label="شخصیت‌های نورانی">
+        <img src="./WhatsApp%20Image%202026-09-26%20at%209.28.21%20PM%20(1).jpeg" alt="کاراکتر نورانی">
+        <img src="./WhatsApp%20Image%202026-09-26%20at%209.28.21%20PM%20(2).jpeg" alt="کاراکتر نورانی">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>تمرین من</h2>
-      <p>
-        از درس اول شروع کن و مرحله‌به‌مرحله پیش برو.
-      </p>
+    <div class="features">
+      <div class="feature"><div class="ico">🎧</div><h3>شنیدن و تکرار</h3><p>نمونه صوتی در هر مرحله پخش می‌شود تا کودک بتواند تکرار کند.</p></div>
+      <div class="feature"><div class="ico">🧩</div><h3>یادگیری مرحله‌ای</h3><p>ساختار درس مرحله‌به‌مرحله است و کودک قبل از رفتن جلو، بخش فعلی را تمرین می‌کند.</p></div>
+      <div class="feature"><div class="ico">🏆</div><h3>تمرین و پیشرفت</h3><p>با تکمیل درس، مرحله بعدی باز می‌شود.</p></div>
+    </div>
+  </section>
 
-      <button class="start" onclick="openLesson(1)">
-        شروع آموزش
-      </button>
+  <section id="lessons" class="screen panel">
+    <div class="lesson-head"><h2>📚 درس‌ها</h2><button class="btn back" onclick="go('home')">🏠 خانه</button></div>
+    <div id="lessonGrid" class="lesson-grid"></div>
+  </section>
+
+  <section id="lesson" class="screen panel lesson-view">
+    <div class="lesson-head"><h2 id="lessonTitle">درس</h2><span id="stepBadge" class="badge">مرحله ۱ از ۵</span></div>
+    <div class="progress"><div id="bar"></div></div>
+
+    <div class="teacher">
+      <img src="./WhatsApp%20Image%202026-09-26%20at%209.28.21%20PM.jpeg" alt="کاراکتر استاد">
+      <div><strong>استاد نورانی</strong><br><span id="teacherLine">آرام گوش کن و بعد از من تکرار کن.</span></div>
     </div>
 
-  </div>
-
-  <div id="lessonArea" class="card">
-    <h2 id="lessonTitle">درس</h2>
-
-    <p id="lessonText">
-      اینجا محتوای درس قرار می‌گیرد.
-    </p>
-
-    <div class="arabic" id="arabicText">
-      ا
+    <div id="s1" class="step active">
+      <h3>مرحله ۱ — حرف</h3><div id="letter" class="arabic">ب</div>
+      <p class="instruction">اول فقط حرف را بشناس و صدای آن را گوش کن.</p>
+      <button class="btn primary" onclick="speak(1)">🔊 گوش کن</button>
     </div>
 
-    <button class="next" onclick="nextLesson()">
-      ادامه درس
-    </button>
+    <div id="s2" class="step">
+      <h3>مرحله ۲ — حرکت</h3><div id="haraka" class="arabic">بَ</div>
+      <p class="instruction">حالا حرکت را همراه حرف بخوان.</p>
+      <button class="btn primary" onclick="speak(2)">🔊 گوش کن</button>
+    </div>
 
-    <br>
+    <div id="s3" class="step">
+      <h3>مرحله ۳ — بخش‌ها را جدا بخوان</h3><div id="parts" class="arabic">بَ &nbsp; تَ</div>
+      <p class="instruction">هر بخش را جداگانه بخوان؛ هنوز کل ترکیب را یک‌جا نخوان.</p>
+      <button class="btn primary" onclick="speak(3)">🔊 گوش کن</button>
+    </div>
 
-    <button class="back" onclick="goHome()">
-      برگشت به درس‌ها
-    </button>
-  </div>
+    <div id="s4" class="step">
+      <h3>مرحله ۴ — وصل کن و کامل بخوان</h3><div id="full" class="arabic">بَتَ</div>
+      <p class="instruction">حالا بخش‌ها را به هم وصل کن و در پایان کل ترکیب را یک‌جا بخوان.</p>
+      <button class="btn primary" onclick="speak(4)">🔊 گوش کن</button>
+    </div>
 
-  <div class="footer">
-    نورانی © 2026
-  </div>
+    <div id="s5" class="step">
+      <h3>مرحله ۵ — نوبت توست 🌟</h3>
+      <p class="instruction">ترکیب درست را انتخاب کن:</p>
+      <button class="option" onclick="quiz(false)">تَ</button>
+      <button class="option" onclick="quiz(true)" id="correct">بَتَ</button>
+      <button class="option" onclick="quiz(false)">بُتُ</button>
+      <div id="feedback" class="feedback"></div>
+    </div>
 
+    <div class="controls">
+      <button class="btn back" onclick="showLessons()">📚 درس‌ها</button>
+      <button class="btn primary" id="next" onclick="nextStep()">مرحله بعد ➜</button>
+    </div>
+  </section>
 </div>
 
 <script>
-
-let currentLesson = 1;
-
-function openLesson(number) {
-  currentLesson = number;
-
-  document.getElementById("home").style.display = "none";
-  document.getElementById("lessonArea").style.display = "block";
-
-  let title = "";
-  let text = "";
-  let arabic = "";
-
-  if (number === 1) {
-    title = "درس ۱ — حروف";
-    text = "در این مرحله حروف را یکی‌یکی یاد می‌گیریم.";
-    arabic = "ا  ب  ت  ث";
-  }
-
-  if (number === 2) {
-    title = "درس ۲ — حرکات";
-    text = "در این مرحله با حرکات آشنا می‌شویم.";
-    arabic = "َ ِ ُ";
-  }
-
-  if (number === 3) {
-    title = "درس ۳ — ترکیب";
-    text = "ابتدا حروف و حرکات را جداگانه می‌بینیم، سپس آنها را به هم وصل می‌کنیم.";
-    arabic = "بَ  بِ  بُ";
-  }
-
-  if (number === 4) {
-    title = "درس ۴ — تمرین خواندن";
-    text = "حالا آموخته‌های خود را تمرین می‌کنیم.";
-    arabic = "بَ  تَ  ثَ";
-  }
-
-  document.getElementById("lessonTitle").innerText = title;
-  document.getElementById("lessonText").innerText = text;
-  document.getElementById("arabicText").innerText = arabic;
-}
-
-function nextLesson() {
-  if (currentLesson < 4) {
-    openLesson(currentLesson + 1);
-  } else {
-    alert("آفرین! این بخش تمام شد.");
-  }
-}
-
-function goHome() {
-  document.getElementById("lessonArea").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}
-
+const lessons=[
+ {id:1,title:"درس ۱: باء و فتحه",a:"ب",b:"بَ",parts:["بَ","تَ"],full:"بَتَ"},
+ {id:2,title:"درس ۲: تاء و فتحه",a:"ت",b:"تَ",parts:["تَ","بَ"],full:"تَبَ"},
+ {id:3,title:"درس ۳: ثاء و فتحه",a:"ث",b:"ثَ",parts:["ثَ","بَ"],full:"ثَبَ"},
+ {id:4,title:"درس ۴: جیم و فتحه",a:"ج",b:"جَ",parts:["جَ","بَ"],full:"جَبَ"}
+];
+let lessonNo=Number(localStorage.getItem("nooraniLesson")||1),step=1;
+function go(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");scrollTo(0,0)}
+function mainAction(){if(localStorage.getItem("nooraniStarted"))showLessons();else{localStorage.setItem("nooraniStarted","1");showLessons()}}
+function showLessons(){render();go("lessons")}
+function render(){const g=document.getElementById("lessonGrid");g.innerHTML="";lessons.forEach(l=>{let open=l.id<=lessonNo,d=document.createElement("div");d.className="lesson "+(open?"open":"locked");d.innerHTML=`<span class="badge">${open?"باز است":"🔒 قفل"}</span><h3>${l.title}</h3><p>حرف → حرکت → بخش‌های جدا → اتصال → خواندن کامل → تمرین</p>`;if(open)d.onclick=()=>openLesson(l.id);g.appendChild(d)})}
+function openLesson(n){lessonNo=n;step=1;let l=lessons[n-1];document.getElementById("lessonTitle").textContent=l.title;document.getElementById("letter").textContent=l.a;document.getElementById("haraka").textContent=l.b;document.getElementById("parts").textContent=l.parts.join("   ");document.getElementById("full").textContent=l.full;document.getElementById("feedback").textContent="";document.querySelectorAll(".step").forEach(x=>x.classList.remove("active"));document.getElementById("s1").classList.add("active");update();go("lesson")}
+function update(){document.getElementById("stepBadge").textContent=`مرحله ${step} از ۵`;document.getElementById("bar").style.width=((step-1)/4*100)+"%";document.getElementById("next").textContent=step<5?"مرحله بعد ➜":"پایان درس ✓"}
+function nextStep(){if(step<5){document.getElementById("s"+step).classList.remove("active");step++;document.getElementById("s"+step).classList.add("active");update()}else{if(lessonNo<lessons.length){lessonNo++;localStorage.setItem("nooraniLesson",lessonNo);alert("آفرین! درس کامل شد 🌟 درس بعدی باز شد.");openLesson(lessonNo)}else{alert("آفرین! همه درس‌های فعلی را کامل کردی 🌟");showLessons()}}}
+function speak(n){let l=lessons[lessonNo-1],text=n===1?l.a:n===2?l.b:n===3?l.parts[0]+" ... "+l.parts[1]:l.full;if("speechSynthesis"in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="ar-SA";u.rate=.62;speechSynthesis.speak(u)}}
+function quiz(ok){let f=document.getElementById("feedback");if(ok){f.textContent="آفرین! درست انتخاب کردی 🌟";f.style.color="#2a9a69"}else{f.textContent="دوباره با دقت نگاه کن و امتحان کن.";f.style.color="#d35a6a"}}
+const langs={fa:["📖 نورانی","با نورانی یادگیری را شروع کن 🌈","درس‌ها با بازی، صدا، تصویر و تمرین مرحله‌به‌مرحله پیش می‌روند.","🌟 شروع یادگیری","📚 درس‌ها"],en:["📖 Noorani","Start learning with Noorani 🌈","Lessons use sound, pictures and step-by-step practice.","🌟 Start learning","📚 Lessons"],ar:["📖 نوراني","ابدأ التعلم مع نوراني 🌈","دروس خطوة بخطوة بالصوت والصورة والتدريب.","🌟 ابدأ التعلم","📚 الدروس"],ur:["📖 نورانی","نورانی کے ساتھ سیکھنا شروع کریں 🌈","آواز، تصاویر اور مرحلہ وار مشق کے ساتھ۔","🌟 سیکھنا شروع کریں","📚 اسباق"]};
+function setLanguage(){let v=document.getElementById("lang").value,t=langs[v]||langs.fa;document.getElementById("brand").textContent=t[0];document.getElementById("heroTitle").textContent=t[1];document.getElementById("heroText").textContent=t[2];document.getElementById("mainBtn").textContent=t[3];document.querySelector("#home .light").textContent=t[4]}
+render();setLanguage();
 </script>
-
 </body>
 </html>
