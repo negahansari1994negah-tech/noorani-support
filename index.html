@@ -1,29 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noorani — Support</title>
+<title>نورانی | آموزش قاعده نورانی</title>
+
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f7f8fa;color:#202124;line-height:1.6}
-.wrap{max-width:760px;margin:auto;padding:48px 20px}
-.card{background:#fff;border-radius:18px;padding:34px;box-shadow:0 6px 24px rgba(0,0,0,.08)}
-h1{margin-top:0}.email{display:inline-block;padding:12px 16px;border-radius:10px;background:#f0f2f5;color:#111;text-decoration:none;font-weight:600}
-footer{margin-top:28px;font-size:14px;color:#6b7280}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Segoe UI", sans-serif;
+  background: #f5f8ff;
+  color: #202124;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 25px 18px 50px;
+}
+
+.header {
+  background: white;
+  border-radius: 24px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 5px 0;
+  color: #2457c5;
+  font-size: 32px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.07);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #2457c5;
+}
+
+.lesson {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #eef4ff;
+  color: #17449e;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+}
+
+.lesson:hover {
+  background: #dce9ff;
+}
+
+.start {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #2f6fed;
+  color: white;
+  padding: 17px;
+  border-radius: 16px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#lessonArea {
+  display: none;
+  text-align: center;
+}
+
+.arabic {
+  font-size: 55px;
+  line-height: 1.8;
+  margin: 25px 0;
+  color: #111;
+}
+
+.next {
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 14px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.back {
+  background: #eee;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.footer {
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+  font-size: 14px;
+}
 </style>
 </head>
+
 <body>
-<main class="wrap"><section class="card">
-<h1>Noorani Support</h1>
-<p>Welcome to the official support page for <strong>Noorani</strong>, an interactive Noorani Qaida learning app for children and adults.</p>
-<h2>Need help?</h2>
-<p>If you have a question about the app, lessons, pronunciation practice, subscriptions, account access, or technical issues, please contact us by email.</p>
-<a class="email" href="mailto:ozo203693@gmail.com">ozo203693@gmail.com</a>
-<h2>Feedback</h2>
-<p>We welcome feedback and suggestions that can help improve Noorani and the learning experience.</p>
-<h2>About Noorani</h2>
-<p>Noorani provides step-by-step learning, listen-and-repeat practice, pronunciation exercises, progress tracking, and structured revision based on Noorani Qaida.</p>
-<footer>© 2026 Noorani. All rights reserved.</footer>
-</section></main>
+
+<div class="container">
+
+  <div class="header">
+    <div class="logo">📖</div>
+    <h1>نورانی</h1>
+    <div class="subtitle">
+      آموزش مرحله‌به‌مرحله قاعده نورانی
+      <br>
+      برای کودکان و بزرگسالان
+    </div>
+  </div>
+
+  <div id="home">
+
+    <div class="card">
+      <h2>درس‌ها</h2>
+
+      <button class="lesson" onclick="openLesson(1)">
+        📚 درس ۱ — حروف
+      </button>
+
+      <button class="lesson" onclick="openLesson(2)">
+        📚 درس ۲ — حرکات
+      </button>
+
+      <button class="lesson" onclick="openLesson(3)">
+        📚 درس ۳ — ترکیب حروف و حرکات
+      </button>
+
+      <button class="lesson" onclick="openLesson(4)">
+        📚 درس ۴ — تمرین خواندن
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>تمرین من</h2>
+      <p>
+        از درس اول شروع کن و مرحله‌به‌مرحله پیش برو.
+      </p>
+
+      <button class="start" onclick="openLesson(1)">
+        شروع آموزش
+      </button>
+    </div>
+
+  </div>
+
+  <div id="lessonArea" class="card">
+    <h2 id="lessonTitle">درس</h2>
+
+    <p id="lessonText">
+      اینجا محتوای درس قرار می‌گیرد.
+    </p>
+
+    <div class="arabic" id="arabicText">
+      ا
+    </div>
+
+    <button class="next" onclick="nextLesson()">
+      ادامه درس
+    </button>
+
+    <br>
+
+    <button class="back" onclick="goHome()">
+      برگشت به درس‌ها
+    </button>
+  </div>
+
+  <div class="footer">
+    نورانی © 2026
+  </div>
+
+</div>
+
+<script>
+
+let currentLesson = 1;
+
+function openLesson(number) {
+  currentLesson = number;
+
+  document.getElementById("home").style.display = "none";
+  document.getElementById("lessonArea").style.display = "block";
+
+  let title = "";
+  let text = "";
+  let arabic = "";
+
+  if (number === 1) {
+    title = "درس ۱ — حروف";
+    text = "در این مرحله حروف را یکی‌یکی یاد می‌گیریم.";
+    arabic = "ا  ب  ت  ث";
+  }
+
+  if (number === 2) {
+    title = "درس ۲ — حرکات";
+    text = "در این مرحله با حرکات آشنا می‌شویم.";
+    arabic = "َ ِ ُ";
+  }
+
+  if (number === 3) {
+    title = "درس ۳ — ترکیب";
+    text = "ابتدا حروف و حرکات را جداگانه می‌بینیم، سپس آنها را به هم وصل می‌کنیم.";
+    arabic = "بَ  بِ  بُ";
+  }
+
+  if (number === 4) {
+    title = "درس ۴ — تمرین خواندن";
+    text = "حالا آموخته‌های خود را تمرین می‌کنیم.";
+    arabic = "بَ  تَ  ثَ";
+  }
+
+  document.getElementById("lessonTitle").innerText = title;
+  document.getElementById("lessonText").innerText = text;
+  document.getElementById("arabicText").innerText = arabic;
+}
+
+function nextLesson() {
+  if (currentLesson < 4) {
+    openLesson(currentLesson + 1);
+  } else {
+    alert("آفرین! این بخش تمام شد.");
+  }
+}
+
+function goHome() {
+  document.getElementById("lessonArea").style.display = "none";
+  document.getElementById("home").style.display = "block";
+}
+
+</script>
+
 </body>
 </html>
